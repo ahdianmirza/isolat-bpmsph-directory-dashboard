@@ -15,8 +15,8 @@ class RakController extends Controller
 
     public function store(Request $request) {
         $validatedData = $request->validate([
-            'name' => 'required|max:255',
-            'slug' => 'required|max:255'
+            'name' => 'required|unique:raks|max:255',
+            'slug' => 'required|unique:raks|max:255'
         ]);
 
         Rak::create($validatedData);
