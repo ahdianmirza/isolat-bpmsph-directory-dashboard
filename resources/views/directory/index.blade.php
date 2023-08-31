@@ -5,8 +5,9 @@
         <h1>Directory Isolat</h1>
         <nav>
             <ol class="breadcrumb">
-                <li class="breadcrumb-item"><a href="index.html">Home</a></li>
-                <li class="breadcrumb-item active">{{ Request::is('directory') ? 'Directory' : 'Not Found' }}</li>
+                <li class="breadcrumb-item"><a href="/">Home</a></li>
+                <li class="breadcrumb-item active">
+                    {{ Request::is('directory*') || Request::is('search*') ? 'Directory Isolat' : 'Not Found' }}</li>
             </ol>
         </nav>
     </div><!-- End Page Title -->
@@ -43,7 +44,7 @@
                                 <th scope="row">{{ $loop->iteration }}</th>
                                 <td>{{ $directory->mitra }}</td>
                                 <td>{{ $directory->kode_isolat }}</td>
-                                <td>{{ $directory->rak }}</td>
+                                <td>{{ $directory->rak->name }}</td>
                                 <td>{{ $directory->jenis }}</td>
                                 <td>{{ $directory->tahun }}</td>
                                 <td>{{ $directory->keterangan }}</td>

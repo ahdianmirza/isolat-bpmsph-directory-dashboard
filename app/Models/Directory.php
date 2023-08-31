@@ -15,10 +15,13 @@ class Directory extends Model
         $query->when($filters['search'] ?? false, function($query, $search) {
             return $query->where('mitra', 'like', '%' . $search . '%')
                         ->orWhere('kode_isolat', 'like', '%' . $search . '%')
-                        ->orWhere('rak', 'like', '%' . $search . '%')
                         ->orWhere('jenis', 'like', '%' . $search . '%')
                         ->orWhere('tahun', 'like', '%' . $search . '%')
                         ->orWhere('keterangan', 'like', '%' . $search . '%');
         });
+    }
+
+    public function rak() {
+        return $this->belongsTo(Rak::class);
     }
 }

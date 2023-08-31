@@ -11,7 +11,8 @@
         </li><!-- End Dashboard Nav -->
 
         <li class="nav-item">
-            <a class="nav-link {{ Request::is('directory*') ? '' : 'collapsed' }}" href="/directory">
+            <a class="nav-link {{ Request::is('directory*') || Request::is('search*') ? '' : 'collapsed' }}"
+                href="/directory">
                 <i class="bi bi-card-list"></i>
                 <span>Directory</span>
             </a>

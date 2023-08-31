@@ -9,9 +9,9 @@
     </div><!-- End Logo -->
 
     <div class="search-bar">
-        <form class="search-form d-flex align-items-center" method="get"
-            action="/{{ Request::is('/') ? '' : 'directory' }}">
-            <input type="text" name="search" placeholder="Search" value="{{ request('search') }}">
+        <form class="search-form d-flex align-items-center" method="get" action="/search">
+            <input type="text" name="search" placeholder="Search" autocomplete="off"
+                value="{{ request('search') }}">
             <button type="submit"><i class="bi bi-search"></i></button>
         </form>
     </div><!-- End Search Bar -->

@@ -5,14 +5,13 @@
         <h1>Dashboard</h1>
         <nav>
             <ol class="breadcrumb">
-                <li class="breadcrumb-item"><a href="index.html">Home</a></li>
                 <li class="breadcrumb-item active">{{ Request::is('/') ? 'Dashboard' : 'Not Found' }}</li>
             </ol>
         </nav>
     </div><!-- End Page Title -->
     <div class="card">
         <div class="card-body">
-            <h5 class="card-title">Data Isolat</h5>
+            <h5 class="fw-semibold">Data Isolat</h5>
 
             <table class="table">
                 <thead>
@@ -33,7 +32,7 @@
                                 <th scope="row">{{ $loop->iteration }}</th>
                                 <td>{{ $directory->mitra }}</td>
                                 <td>{{ $directory->kode_isolat }}</td>
-                                <td>{{ $directory->rak }}</td>
+                                <td>{{ $directory->rak->name }}</td>
                                 <td>{{ $directory->jenis }}</td>
                                 <td>{{ $directory->tahun }}</td>
                                 <td>{{ $directory->keterangan }}</td>

@@ -11,14 +11,10 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('directories', function (Blueprint $table) {
+        Schema::create('raks', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('rak_id');
-            $table->string('mitra');
-            $table->string('kode_isolat');
-            $table->string('jenis');
-            $table->string('tahun');
-            $table->string('keterangan');
+            $table->string('name');
+            $table->string('slug');
             $table->timestamps();
         });
     }
@@ -28,6 +24,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('directories');
+        Schema::dropIfExists('raks');
     }
 };

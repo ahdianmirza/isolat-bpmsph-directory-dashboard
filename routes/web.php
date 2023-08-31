@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\RakController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\DirectoryController;
 
@@ -17,3 +18,6 @@ use App\Http\Controllers\DirectoryController;
 
 Route::get('/', [DashboardController::class, 'index']);
 Route::resource('/directory', DirectoryController::class);
+Route::get('/search', [DirectoryController::class, 'search']);
+Route::get('/directory/create/create-rak', [RakController::class, 'create']);
+Route::post('/directory/create/create-rak', [RakController::class, 'store']);
