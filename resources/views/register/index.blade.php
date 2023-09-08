@@ -58,7 +58,7 @@
                                         <p class="text-center">Enter your personal details to create account</p>
                                     </div>
 
-                                    <form action="/register" method="post" class="row g-3 needs-validation" novalidate>
+                                    <form action="/register" method="post" class="row g-3">
                                         @csrf
                                         <div class="col-12">
                                             <label for="name" class="form-label fw-semibold">Name</label>

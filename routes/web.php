@@ -18,11 +18,16 @@ use App\Http\Controllers\DirectoryController;
 |
 */
 
-Route::get('/', [DashboardController::class, 'index']);
-Route::get('/login', [LoginController::class, 'index']);
-Route::get('/register', [RegisterController::class, 'index']);
+Route::get('/', [DashboardController::class, 'index'])->middleware('auth');
+
+Route::get('/login', [LoginController::class, 'index'])->name('login')->middleware('guest');
+Route::post('/login', [LoginController::class, 'authenticate']);
+Route::post('/logout', [LoginController::class, 'logout']);
+
+Route::get('/register', [RegisterController::class, 'index'])->middleware('guest');
 Route::post('/register', [RegisterController::class, 'store']);
-Route::resource('/directory', DirectoryController::class);
-Route::get('/search', [DirectoryController::class, 'search']);
-Route::get('/directory/create/create-rak', [RakController::class, 'create']);
+
+Route::get('/search', [DirectoryController::class, 'search'])->middleware('auth');
+Route::resource('/directory', DirectoryController::class)->middleware('auth');
+Route::get('/directory/create/create-rak', [RakController::class, 'create'])->middleware('auth');
 Route::post('/directory/create/create-rak', [RakController::class, 'store']);

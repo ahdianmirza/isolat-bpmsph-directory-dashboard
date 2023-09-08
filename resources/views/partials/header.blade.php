@@ -35,4 +35,12 @@
             </li><!-- End Search Icon-->
         </ul>
     </nav><!-- End Icons Navigation -->
+
+    <form action="/logout" method="post">
+        @csrf
+        <button type="submit"
+            class="btn btn-outline-secondary btn-sm me-4 text-decoration-none fw-semibold d-flex justify-content-center align-items-center">
+            <i class="bi bi-box-arrow-right me-1 text-bolder"></i>Logout
+        </button>
+    </form>
 </header><!-- End Header -->

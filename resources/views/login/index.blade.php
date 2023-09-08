@@ -56,6 +56,12 @@
                                 </div>
                             @endif
 
+                            @if (session()->has('loginError'))
+                                <div class="alert alert-danger" role="alert">
+                                    {{ session('loginError') }}
+                                </div>
+                            @endif
+
                             <div class="card border border-0 bg-white mb-3">
                                 <div class="card-body">
                                     <div class="pb-2">
@@ -64,22 +70,30 @@
                                         <p class="text-center">Enter your username & password to login</p>
                                     </div>
 
-                                    <form class="row g-3 needs-validation" novalidate>
+                                    <form action="/login" method="post" class="row g-3">
+                                        @csrf
                                         <div class="col-12">
                                             <label for="username" class="form-label fw-semibold">Username</label>
                                             <div class="input-group has-validation">
                                                 <span class="input-group-text bg-white" id="inputGroupPrepend">@</span>
-                                                <input type="text" name="username" class="form-control bg-white"
-                                                    id="username" placeholder="Enter your username" autocomplete="off"
+                                                <input type="text" name="username"
+                                                    class="form-control @error('username') is-invalid @enderror bg-white"
+                                                    id="username" value="{{ old('username') }}"
+                                                    placeholder="Enter your username" autofocus autocomplete="off"
                                                     required>
-                                                <div class="invalid-feedback">Please enter your username.</div>
+                                                @error('username')
+                                                    <div class="invalid-feedback">{{ $message }}</div>
+                                                @enderror
                                             </div>
                                         </div>
                                         <div class="col-12">
                                             <label for="password" class="form-label fw-semibold">Password</label>
-                                            <input type="password" name="password" class="form-control bg-white"
+                                            <input type="password" name="password"
+                                                class="form-control  @error('password') is-invalid @enderror bg-white"
                                                 id="password" placeholder="Enter your password" required>
-                                            <div class="invalid-feedback">Please enter your password!</div>
+                                            @error('password')
+                                                <div class="invalid-feedback">{{ $message }}</div>
+                                            @enderror
                                         </div>
                                         <div class="col-12">
                                             <button class="btn btn-primary w-100" type="submit">Login</button>
