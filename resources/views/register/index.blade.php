@@ -46,7 +46,7 @@
                             <div class="d-flex justify-content-center py-4">
                                 <div class="logo d-flex align-items-center w-auto text-decoration-none">
                                     <img src="assets/img/logo.png" alt="">
-                                    <span class="d-none d-lg-block fs-3">NiceAdmin</span>
+                                    <span class="d-none d-lg-block fs-3">Data Isolat BPMSPH</span>
                                 </div>
                             </div><!-- End Logo -->
 
