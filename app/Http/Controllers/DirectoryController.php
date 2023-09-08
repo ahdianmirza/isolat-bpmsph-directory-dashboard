@@ -81,7 +81,8 @@ class DirectoryController extends Controller
     {
         return view('directory.edit', [
             'title' => 'Update Data Directory',
-            'directory' => $directory
+            'directory' => $directory,
+            'raks' => Rak::all()
         ]);
     }
 
@@ -93,7 +94,7 @@ class DirectoryController extends Controller
         $validatedData = $request->validate([
             'mitra' => 'required|max:255',
             'kode_isolat' => 'required|max:255',
-            'rak' => 'required|max:255',
+            'rak_id' => 'required',
             'jenis' => 'required|max:255',
             'tahun' => 'required|max:255',
             'keterangan' => 'required|max:255'

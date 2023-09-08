@@ -2,11 +2,12 @@
 
 @section('container')
     <div class="pagetitle">
-        <h1>Directory</h1>
+        <h1>Edit Data</h1>
         <nav>
             <ol class="breadcrumb">
                 <li class="breadcrumb-item"><a href="/">Home</a></li>
-                <li class="breadcrumb-item active">{{ Request::is('directory*') ? 'Directory' : 'Not Found' }}</li>
+                <li class="breadcrumb-item"><a href="/directory">Directory Isolat</a></li>
+                <li class="breadcrumb-item active">{{ Request::is('directory*') ? 'Edit Data' : 'Not Found' }}</li>
             </ol>
         </nav>
     </div><!-- End Page Title -->
@@ -45,8 +46,18 @@
                 <div class="row mb-3">
                     <label for="inputEmail" class="col-sm-2 col-form-label">Letak Isolat</label>
                     <div class="col-sm-10">
-                        <input type="text" name="rak" class="form-control @error('rak') is-invalid @enderror"
-                            value="{{ old('rak') ? old('rak') : $directory->rak }}">
+                        {{-- <input type="text" name="rak" class="form-control @error('rak') is-invalid @enderror"
+                            value="{{ old('rak') ? old('rak') : $directory->rak->name }}"> --}}
+                        <div class="d-flex justify-content-center align-items-center">
+                            <select class="form-select" aria-label="Default select example" name="rak_id" id="rak_id">
+                                <option disabled selected>Pilih rak yang tersedia</option>
+                                @foreach ($raks as $rak)
+                                    <option value="{{ $rak->id }}"
+                                        {{ $directory->rak->id == $rak->id ? 'selected' : '' }}>{{ $rak->name }}
+                                    </option>
+                                @endforeach
+                            </select>
+                        </div>
                         @error('rak')
                             <div class="invalid-feedback">
                                 {{ $message }}

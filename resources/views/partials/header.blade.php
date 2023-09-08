@@ -5,7 +5,16 @@
             <img src="{{ asset('assets/img/logo.png') }}" alt="">
             <span class="d-none d-lg-block fs-5 text-decoration-none">DATA ISOLAT BPMSPH</span>
         </a>
-        <i class="bi bi-list toggle-sidebar-btn"></i>
+        <span class="toggle-sidebar-btn">
+            <svg width="24" height="24" fill="none" viewBox="0 0 24 24">
+                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
+                    d="M4.75 5.75H19.25"></path>
+                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
+                    d="M4.75 18.25H19.25"></path>
+                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
+                    d="M4.75 12H19.25"></path>
+            </svg>
+        </span>
     </div><!-- End Logo -->
 
     <div class="search-bar">
